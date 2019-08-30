@@ -7,8 +7,6 @@ from pytube import YouTube
 from pytube import Playlist
 from pydub import AudioSegment
 import argparse, time
-#from general import append_to_file
-
 
 #### Functions ###
 
