@@ -30,7 +30,7 @@ def choose_download(youtube):
 
 
     dl_start = time.time()
-    stream.download()
+    stream.download('./Downloads')
     dl_end = time.time()
     dl_totaltime = dl_end - dl_start
 
@@ -40,12 +40,13 @@ def choose_download(youtube):
         print("In: " + str(round(dl_totaltime/60, 2)) + "minutes")
 
     if args.audio:
-        print("Do you wish to convert your webm audio file?")
+        print("Do you wish to convert your audio file to mp3 format?")
         conversion = input("Press enter to skip or (y) to convert:")
         if conversion:
             try:
-                sound = AudioSegment.from_file(str(stream.default_filename))
-                file_handle= sound.export(str(stream.default_filename[:-5])+".mp3", format="mp3")
+                print("Converting file to mp3...")
+                sound = AudioSegment.from_file('./Downloads/' + str(stream.default_filename))
+                file_handle= sound.export('./Downloads/' + str(stream.default_filename[:-5])+".mp3", format="mp3")
                 print("Conversion Done!\n")
             except e:
                 print(e)
