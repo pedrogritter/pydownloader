@@ -5,6 +5,7 @@ __version__ = "1.0"
 
 from pytube import YouTube
 from pytube import Playlist
+from pytube.cli import on_progress
 from pydub import AudioSegment
 import argparse, time
 
@@ -68,7 +69,7 @@ url = str(args.url)
 
 # Searches for the video and sets up the callback to run the progress indicator.
 try:
-    youtube = YouTube(url)
+    youtube = YouTube(url, on_progress_callback=on_progress)
 except Exception as e:
     print("ERROR. Check your:\n  -connection\n  -url is a YouTube url\n\nTry again.")
     print(e)
