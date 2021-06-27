@@ -22,7 +22,7 @@ video = youtube.streams.get_highest_resolution()
 video_title = video.title
 video_size = str(round(video.filesize/(1024*1024),2))
 
-print(f'Downloading - {video.title} - {video_size}MBs')
+print(f'Downloading - {video_title} - {video_size}MBs')
 
 video.download() # In Same Folder
 # or
